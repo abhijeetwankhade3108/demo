@@ -1,0 +1,37 @@
+---
+- name: Deploy Spring Petclinic as Linux Service
+  hosts: appserver
+  become: yes
+  tasks:
+    - name: Update ubuntu packages and install java
+      apt:
+        name: openjdk-11-jdk
+        update_cache: yes
+        state: present
+    - name: Creating spring petclinic directory
+      file:
+        path: /usr/share/springpetclinic
+        state: directory
+    - name: Download Spring Petclinic
+        get_url: https://springpetclinicservice.s3.amazonaws.com/spring-petclinic-2.4.2.jar
+        dest: /usr/share/springpetclinic/spring-petclinic-2.4.2.jar
+    - name: Create Spring Bootuser
+      user:
+        name: springbootuser
+        password: springbootuser
+        state: present
+    - name: Change ownership of file
+      file:
+        path: /usr/share/springpetclinic/spring-petclinic-2.4.2.jar
+        owner: springbootuser
+        mode: '500'
+        state: file
+    - name: Copy the file From Local Machine To Remote spring petlinic service
+      copy:
+        dest: /etc/systemd/system/springpetclinic.service
+        src: springpetclinic.service
+    - name: Enable and start spring petclinic service
+      systemd:
+        name: springpetclinic.service
+        enabled: yes
+        state: started
