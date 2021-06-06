@@ -1,0 +1,56 @@
+…or create a new repository on the command line
+echo "# chef" >> README.md
+
+
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Abhi-wan123/chef.git
+git push -u origin main
+
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/Abhi-wan123/chef.git
+git branch -M main
+git push -u origin main
+
+
+
+
+History
+ 79  git init
+   80  cat
+   81  git status
+   82  git add .
+   83  git status
+   84  git commit -m 'first commit index file added'
+   85  git log
+   86  git commit -m 'first commit spring petclinic file added'
+   87  git config --global user.name "abhijeetwankhade"
+   88  clear
+   89  git config --global user.name
+   90  git config --global user.email
+   91  git config --global user.name "abhijeetwankhade1996@gmail.com"
+   92  git config --global user.email
+   93  git config --global user.email
+   94  git config --global user.email "abhijeetwankhade1996@gmail.com"
+   95  git config --global user.email
+   96  clear
+   97  git status
+   98  git commit -m 'first commit sprigpetclinic file added'
+   99  git log
+  100  git remote
+  101  https://github.com/Abhi-wan123/Ansible.git
+  102  git remote add https://github.com/Abhi-wan123/Ansible.git
+  103  git remote add abhi https://github.com/Abhi-wan123/Ansible.git
+  104  git remote
+  105  git remote -v
+  106  git push -u abhi
+  107  git push -u abhi master
+  108  cd d
+  109  git remote
+  110  git remote add origin https://github.com/Abhi-wan123/Ansible.git
+  111  git staus
+  112  git status
+  113  git commit -m "first File added"
